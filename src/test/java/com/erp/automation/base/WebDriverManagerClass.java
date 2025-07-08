@@ -1,0 +1,48 @@
+package com.erp.automation.base;
+
+import java.time.Duration;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class WebDriverManagerClass {
+
+	  private static WebDriver driver;
+
+//	    public static WebDriver getDriver() {
+//	        if (driver == null) {
+//	            System.setProperty("webdriver.chrome.driver",
+//	                "C:\\Users\\Administrator.DESKTOP-LE8QUGM\\eclipse-workspace\\erp-test-automation\\chromedriver.exe");
+//
+//	            driver = new ChromeDriver();
+//	            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+//	            driver.manage().window().maximize();
+//	        }
+//	        return driver;
+//	    }
+
+	  public static WebDriver getDriver() {
+		    if (driver == null) {
+		        WebDriverManager.chromedriver().setup(); // auto-downloads compatible ChromeDriver
+		        driver = new ChromeDriver();
+		        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+		        driver.manage().window().maximize();
+		    }
+		    return driver;
+		}
+
+	    public static void quitDriver() {
+	        if (driver != null) {
+	            driver.quit();
+	            driver = null;
+	        }
+
+	    }
+
+
+
+
+
+}

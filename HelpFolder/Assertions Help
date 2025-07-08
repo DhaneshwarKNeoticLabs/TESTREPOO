@@ -1,0 +1,353 @@
+
+Below is a **comprehensive list of Web Element properties that should be tested using assertions**, along with **examples**.
+
+---
+
+## ✅ 1. **Text of an Element**
+
+### ⬅ What to assert:
+
+* Whether the **actual text** matches the **expected text** (e.g., headings, labels, messages)
+
+### ✅ Example:
+
+```java
+String actualText = driver.findElement(By.id("welcome")).getText();
+Assert.assertEquals(actualText, "Welcome Admin", "Welcome message mismatch");
+```
+
+---
+
+## ✅ 2. **Element Visibility**
+
+### ⬅ What to assert:
+
+* Whether an element is **visible or hidden**
+
+### ✅ Example:
+
+```java
+WebElement logoutBtn = driver.findElement(By.id("logout"));
+Assert.assertTrue(logoutBtn.isDisplayed(), "Logout button is not visible");
+```
+
+---
+
+## ✅ 3. **Element is Enabled or Disabled**
+
+### ⬅ What to assert:
+
+* Whether a button or input field is **clickable or not**
+
+### ✅ Example:
+
+```java
+WebElement submitBtn = driver.findElement(By.id("submit"));
+Assert.assertTrue(submitBtn.isEnabled(), "Submit button is disabled");
+```
+
+---
+
+## ✅ 4. **Element is Selected (for checkboxes/radio buttons)**
+
+### ⬅ What to assert:
+
+* Whether a checkbox or radio is **checked or unchecked**
+
+### ✅ Example:
+
+```java
+WebElement rememberMeCheckbox = driver.findElement(By.id("remember"));
+Assert.assertTrue(rememberMeCheckbox.isSelected(), "Checkbox is not selected");
+```
+
+---
+
+## ✅ 5. **Element Attribute Value**
+
+### ⬅ What to assert:
+
+* Assert values of attributes like `placeholder`, `value`, `href`, `src`, etc.
+
+### ✅ Example:
+
+```java
+WebElement emailField = driver.findElement(By.id("email"));
+String placeholder = emailField.getAttribute("placeholder");
+Assert.assertEquals(placeholder, "Enter your email", "Incorrect placeholder text");
+```
+
+---
+
+## ✅ 6. **URL After Navigation**
+
+### ⬅ What to assert:
+
+* After performing an action, ensure the browser is on the correct URL.
+
+### ✅ Example:
+
+```java
+String currentUrl = driver.getCurrentUrl();
+Assert.assertTrue(currentUrl.contains("/dashboard"), "URL does not contain '/dashboard'");
+```
+
+---
+
+## ✅ 7. **Page Title**
+
+### ⬅ What to assert:
+
+* Whether the page title is correct.
+
+### ✅ Example:
+
+```java
+String actualTitle = driver.getTitle();
+Assert.assertEquals(actualTitle, "Dashboard - MyApp", "Page title mismatch");
+```
+
+---
+
+## ✅ 8. **List/Dropdown Options**
+
+### ⬅ What to assert:
+
+* Whether dropdown has correct options.
+
+### ✅ Example:
+
+```java
+Select dropdown = new Select(driver.findElement(By.id("country")));
+List<WebElement> options = dropdown.getOptions();
+Assert.assertEquals(options.size(), 5, "Dropdown should have 5 options");
+Assert.assertEquals(options.get(1).getText(), "India", "Second option should be India");
+```
+
+---
+
+## ✅ 9. **Image Source / Logo Presence**
+
+### ⬅ What to assert:
+
+* Whether image is present and has correct `src` attribute
+
+### ✅ Example:
+
+```java
+WebElement logo = driver.findElement(By.id("logo"));
+Assert.assertTrue(logo.isDisplayed(), "Logo is not displayed");
+Assert.assertTrue(logo.getAttribute("src").contains("logo.png"), "Logo src is incorrect");
+```
+
+---
+
+## ✅ 10. **CSS Styles (optional)**
+
+### ⬅ What to assert:
+
+* Sometimes critical: font color, background, etc.
+
+### ✅ Example:
+
+```java
+WebElement errorMsg = driver.findElement(By.id("error"));
+String color = errorMsg.getCssValue("color");
+Assert.assertEquals(color, "rgba(255, 0, 0, 1)", "Error message is not red");
+```
+
+---
+
+## ✅ Best Practices
+
+| Best Practice                                                 | Why                          |
+| ------------------------------------------------------------- | ---------------------------- |
+| Use meaningful assertion messages                             | Helps debug failures quickly |
+| Assert early after the element appears                        | Avoid stale element issues   |
+| Don't over-assert (avoid checking everything unless critical) | Keep tests fast and relevant |
+| Keep assertions in **test classes** (not POM classes)         | Clean architecture (SRP)     |
+
+---
+
+Would you like a reusable `AssertionHelper` class to manage all these assertions centrally in your framework?
+=============================================================================================================
+=============================================================================================================
+
+Absolutely — you’ve already got the most common and essential assertion types for web elements, but here are **additional (often overlooked)** assertions that are also valuable in **UI test automation**, especially in **real-world ERP or enterprise applications**:
+
+---
+
+## ✅ 11. **Number of Elements in a List / Table**
+
+### ⬅ What to assert:
+
+* Count of repeated elements like rows in a table, items in a list, etc.
+
+### ✅ Example:
+
+```java
+List<WebElement> rows = driver.findElements(By.xpath("//table[@id='invoiceTable']/tbody/tr"));
+Assert.assertEquals(rows.size(), 10, "Expected 10 invoice entries in table");
+```
+
+---
+
+## ✅ 12. **File Upload or Download Confirmation**
+
+### ⬅ What to assert:
+
+* Whether the uploaded file name appears in the UI or a success message is displayed
+
+### ✅ Example:
+
+```java
+WebElement uploadedFileName = driver.findElement(By.id("fileName"));
+Assert.assertEquals(uploadedFileName.getText(), "resume.pdf", "Uploaded file name mismatch");
+```
+
+---
+
+## ✅ 13. **Modal/Dialog Display and Content**
+
+### ⬅ What to assert:
+
+* Whether a modal appears and its contents are correct
+
+### ✅ Example:
+
+```java
+WebElement modal = driver.findElement(By.id("confirmModal"));
+Assert.assertTrue(modal.isDisplayed(), "Confirmation modal is not displayed");
+
+WebElement modalText = modal.findElement(By.className("modal-body"));
+Assert.assertTrue(modalText.getText().contains("Are you sure"), "Modal message is incorrect");
+```
+
+---
+
+## ✅ 14. **Toast/Alert/Popup Messages**
+
+### ⬅ What to assert:
+
+* Toast messages often appear temporarily — assert content quickly
+
+### ✅ Example:
+
+```java
+WebElement toast = driver.findElement(By.className("toast-message"));
+Assert.assertEquals(toast.getText(), "Record saved successfully", "Toast message incorrect");
+```
+
+---
+
+## ✅ 15. **Redirection / Back Navigation Verification**
+
+### ⬅ What to assert:
+
+* Assert if browser redirected properly or navigated back correctly
+
+### ✅ Example:
+
+```java
+driver.navigate().back();
+Assert.assertTrue(driver.getTitle().contains("Previous Page"), "Navigation back failed");
+```
+
+---
+
+## ✅ 16. **Input Field Pre-Filled / Default Values**
+
+### ⬅ What to assert:
+
+* Fields often come with default values or pre-selected options
+
+### ✅ Example:
+
+```java
+String defaultQty = driver.findElement(By.id("quantity")).getAttribute("value");
+Assert.assertEquals(defaultQty, "1", "Default quantity should be 1");
+```
+
+---
+
+## ✅ 17. **Button Color, State or Icon (UI Specific Visual Elements)**
+
+### ⬅ What to assert:
+
+* For critical workflows, sometimes it matters if a button is highlighted or has an icon
+
+### ✅ Example:
+
+```java
+String saveBtnColor = driver.findElement(By.id("saveBtn")).getCssValue("background-color");
+Assert.assertEquals(saveBtnColor, "rgba(0, 123, 255, 1)", "Save button color is incorrect");
+```
+
+---
+
+## ✅ 18. **Tooltip Text**
+
+### ⬅ What to assert:
+
+* Hover over elements often have tooltips (from `title` attributes)
+
+### ✅ Example:
+
+```java
+WebElement infoIcon = driver.findElement(By.id("infoIcon"));
+String tooltip = infoIcon.getAttribute("title");
+Assert.assertEquals(tooltip, "This field is mandatory", "Tooltip text mismatch");
+```
+
+---
+
+## ✅ 19. **Dynamic Element Content (AJAX-loaded content)**
+
+### ⬅ What to assert:
+
+* Ensure content loaded via JavaScript/AJAX is fully visible
+
+### ✅ Example:
+
+```java
+WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+WebElement ajaxContent = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("ajaxResult")));
+Assert.assertEquals(ajaxContent.getText(), "Data loaded", "AJAX content mismatch");
+```
+
+---
+
+## ✅ 20. **Validation Error Messages**
+
+### ⬅ What to assert:
+
+* Form inputs often return error messages — critical to test these
+
+### ✅ Example:
+
+```java
+WebElement error = driver.findElement(By.id("emailError"));
+Assert.assertEquals(error.getText(), "Invalid email address", "Email error message mismatch");
+```
+
+---
+
+### ✅ Bonus Tip: Use Custom Assertion Helper (Optional)
+
+To keep your code clean:
+
+```java
+public class AssertionHelper {
+    public static void verifyTextEquals(String actual, String expected, String message) {
+        Assert.assertEquals(actual, expected, message);
+    }
+
+    public static void verifyElementDisplayed(WebElement element) {
+        Assert.assertTrue(element.isDisplayed(), "Element not visible: " + element);
+    }
+}
+```
+
+---
+
+Would you like a downloadable checklist (or Excel sheet) summarizing all these 20+ assertion types for test planning?

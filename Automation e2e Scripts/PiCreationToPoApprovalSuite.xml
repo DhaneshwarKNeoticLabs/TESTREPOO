@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+   <listeners>
+        <listener class-name="com.erp.automation.testUtilsListeners.TestListener"/>
+    </listeners>
+
+	<test name="TestForPiCreationToPoApproval">
+		<classes>
+			 <class name="com.erp.automation.tests.purchase.PiCreation"/>
+             <class name="com.erp.automation.tests.purchase.PiApproval"/>
+		  	<class name="com.erp.automation.tests.purchase.PoCreateFromPi" />
+			<class name="com.erp.automation.tests.purchase.PoApprovalProcess" />
+
+		</classes>
+	</test> <!--
+	Test -->
+</suite> <!--
+Suite -->

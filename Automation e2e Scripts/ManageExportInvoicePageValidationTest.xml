@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+
+<listeners>
+        <listener class-name="com.erp.automation.testUtilsListeners.TestListener"/>
+</listeners>
+    
+  <test thread-count="5" name="ManageExportInvoicePageValidationAssertionsTest">
+    <classes>
+      <class name="com.erp.automation.tests.sales.ManageExportInvoicePageValidationTest"/>
+    </classes>
+  </test> <!-- ManageExportInvoicePageValidationAssertionsTest -->
+</suite> <!-- Suite -->

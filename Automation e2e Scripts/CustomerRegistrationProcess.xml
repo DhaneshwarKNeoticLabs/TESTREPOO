@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="CustomerRegistration">
+  <test thread-count="5" name="CustomerRegistrationProcessTest">
+    <classes>
+      <class name="com.erp.automation.tests.sales.CustomerRegistrationTest2"/>
+      <class name="com.erp.automation.tests.sales.CustomerFirstApprovalTest">
+       <methods>
+          <include name="customerFirstApprovalTest2"/>
+        </methods>
+      </class>
+	 <class name="com.erp.automation.tests.sales.CustomerFinalApprovalTest">
+      <methods>
+          <include name="customerFinalApprovalTest2"/>
+        </methods>
+      </class>
+ </classes>
+  </test> <!-- CustomerRegistrationProcessTest -->
+</suite> <!-- CustomerRegistration -->
+	

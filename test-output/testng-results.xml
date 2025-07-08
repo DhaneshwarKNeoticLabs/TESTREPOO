@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2025-07-08T14:30:43 IST" name="CustomerPriceList" finished-at="2025-07-08T14:32:24 IST" duration-ms="100455">
+    <groups>
+    </groups>
+    <test started-at="2025-07-08T14:30:43 IST" name="e2eProcessOfCustomerPriceList" finished-at="2025-07-08T14:32:24 IST" duration-ms="100455">
+      <class name="com.erp.automation.tests.sales.CustomerPriceListApprovalTest">
+        <test-method is-config="true" signature="launchErpSite()[pri:0, instance:com.erp.automation.tests.sales.CustomerPriceListApprovalTest@5e17553a]" started-at="2025-07-08T14:31:41 IST" name="launchErpSite" finished-at="2025-07-08T14:31:47 IST" duration-ms="6553" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchErpSite -->
+        <test-method is-config="true" signature="loginToApplication()[pri:0, instance:com.erp.automation.tests.sales.CustomerPriceListApprovalTest@5e17553a]" started-at="2025-07-08T14:31:47 IST" name="loginToApplication" finished-at="2025-07-08T14:31:51 IST" duration-ms="3455" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginToApplication -->
+        <test-method signature="customerPriceListApprovalProcess()[pri:0, instance:com.erp.automation.tests.sales.CustomerPriceListApprovalTest@5e17553a]" started-at="2025-07-08T14:31:51 IST" name="customerPriceListApprovalProcess" finished-at="2025-07-08T14:32:22 IST" duration-ms="30878" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- customerPriceListApprovalProcess -->
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:com.erp.automation.tests.sales.CustomerPriceListApprovalTest@5e17553a]" started-at="2025-07-08T14:32:22 IST" name="afterMethod" finished-at="2025-07-08T14:32:23 IST" duration-ms="1501" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method is-config="true" signature="afterClass()[pri:0, instance:com.erp.automation.tests.sales.CustomerPriceListApprovalTest@5e17553a]" started-at="2025-07-08T14:32:23 IST" name="afterClass" finished-at="2025-07-08T14:32:24 IST" duration-ms="414" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterClass -->
+      </class> <!-- com.erp.automation.tests.sales.CustomerPriceListApprovalTest -->
+      <class name="com.erp.automation.tests.sales.CustomerPriceListTest">
+        <test-method is-config="true" signature="launchErpSite()[pri:0, instance:com.erp.automation.tests.sales.CustomerPriceListTest@19976a65]" started-at="2025-07-08T14:30:43 IST" name="launchErpSite" finished-at="2025-07-08T14:30:53 IST" duration-ms="10084" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchErpSite -->
+        <test-method is-config="true" signature="loginToApplication()[pri:0, instance:com.erp.automation.tests.sales.CustomerPriceListTest@19976a65]" started-at="2025-07-08T14:30:53 IST" name="loginToApplication" finished-at="2025-07-08T14:30:57 IST" duration-ms="3562" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginToApplication -->
+        <test-method signature="customerPriceListUpdate()[pri:0, instance:com.erp.automation.tests.sales.CustomerPriceListTest@19976a65]" started-at="2025-07-08T14:30:57 IST" name="customerPriceListUpdate" finished-at="2025-07-08T14:31:39 IST" duration-ms="41947" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- customerPriceListUpdate -->
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:com.erp.automation.tests.sales.CustomerPriceListTest@19976a65]" started-at="2025-07-08T14:31:39 IST" name="afterMethod" finished-at="2025-07-08T14:31:40 IST" duration-ms="1550" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method is-config="true" signature="afterClass()[pri:0, instance:com.erp.automation.tests.sales.CustomerPriceListTest@19976a65]" started-at="2025-07-08T14:31:40 IST" name="afterClass" finished-at="2025-07-08T14:31:41 IST" duration-ms="440" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterClass -->
+      </class> <!-- com.erp.automation.tests.sales.CustomerPriceListTest -->
+    </test> <!-- e2eProcessOfCustomerPriceList -->
+  </suite> <!-- CustomerPriceList -->
+</testng-results>

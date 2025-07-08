@@ -1,0 +1,169 @@
+package com.erp.automation.pages.master;
+
+import java.time.Duration;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class ItemPage {
+
+	
+
+
+	//Variables
+	private WebDriver driver;
+	private WebDriverWait wait;
+
+	
+// Item Page
+
+	@FindBy (xpath="//button[@id='AddItem']")
+	private WebElement addItemButton;
+	
+	
+// Item Specifications
+	
+	@FindBy (xpath="//span[@id='select2-ItemTypeId-container']")
+	private WebElement itemType;
+	
+	@FindBy (xpath="(//input[@type='search'])[3]")
+	private WebElement itemTypeSearchField;
+	
+	@FindBy (xpath="//li[text()='CONSUMABLES']")
+	private WebElement itemTypeFirstOption;
+	
+	@FindBy (xpath="//span[@id='select2-ItemSubTypeCode-container']")
+	private WebElement itemSubType;
+	
+	@FindBy (xpath="(//span[@class='select2-search select2-search--dropdown'])[1]")
+	private WebElement itemSubTypeSearchField;
+	
+	@FindBy (xpath="//li[text()='Calculator']")
+	private WebElement itemSubTypeFirstOption;
+
+	@FindBy (xpath="")
+	private WebElement plantDD;
+	
+	@FindBy (xpath="")
+	private WebElement plantOne;
+	
+	@FindBy (xpath="")
+	private WebElement Process;
+	
+	@FindBy (xpath="")
+	private WebElement ProcessSearchField;
+	
+	@FindBy (xpath="")
+	private WebElement ProcessFirstOption;
+	
+	@FindBy (xpath="")
+	private WebElement itemName;
+	
+	@FindBy (xpath="")
+	private WebElement uom;
+	
+	@FindBy (xpath="")
+	private WebElement uomSearchField;
+	
+	@FindBy (xpath="")
+	private WebElement uomFirstOption;
+	
+	
+	@FindBy (xpath="")
+	private WebElement predictedQty;
+	
+	@FindBy (xpath="")
+	private WebElement productGroup;
+	
+	@FindBy (xpath="")
+	private WebElement productGroupSearchField;
+	
+	@FindBy (xpath="")
+	private WebElement productGroupFirstOption;
+	
+	@FindBy (xpath="")
+	private WebElement phase;
+	
+	@FindBy (xpath="")
+	private WebElement phaseProductionOption;
+
+	@FindBy (xpath="")
+	private WebElement isQyalityCheckRadioButton;
+	
+	//GST Details
+	
+	@FindBy (xpath="")
+	private WebElement hsnNo;
+	
+	@FindBy (xpath="")
+	private WebElement generalLedgerField;
+	
+	@FindBy (xpath="")
+	private WebElement generalLedger51210107;
+	
+	//Manufacturing Details
+	
+	@FindBy (xpath="")
+	private WebElement manufacturer;
+	
+	@FindBy (xpath="")
+	private WebElement modal;
+	
+	@FindBy (xpath="")
+	private WebElement yearOfManufacturing;
+	
+	@FindBy (xpath="")
+	private WebElement SelectYearOfManufacturingOption;
+	
+	//others
+	
+	@FindBy (xpath="")
+	private WebElement uploadFile;
+	
+	@FindBy (xpath="")
+	private WebElement saveButton;
+	
+	@FindBy (xpath="")
+	private WebElement confirmarionPopUp;
+	
+	// Constructor
+	
+	public  ItemPage (WebDriver driver){
+
+	PageFactory.initElements(driver, this);
+	this.driver=driver;
+	wait=new WebDriverWait(driver, Duration.ofSeconds(10));
+	}
+
+
+	// Methods
+	
+	
+	public void clickOnAddItem() throws InterruptedException {
+		addItemButton.click();
+	}
+	
+	public void fillMangeItem() throws InterruptedException {
+		addItemButton.click();
+	}
+	
+	public void selectItemType() throws InterruptedException {
+		itemType.click();
+		itemTypeSearchField.sendKeys("Consum");
+		wait.until(ExpectedConditions.elementToBeClickable(itemTypeFirstOption));
+		itemTypeFirstOption.click();
+		
+	}
+	
+	public void selectItemSubType() throws InterruptedException {
+		itemSubType.click();
+		itemTypeSearchField.sendKeys("Consum");
+		wait.until(ExpectedConditions.elementToBeClickable(itemTypeFirstOption));
+		itemTypeFirstOption.click();
+		
+	}
+}

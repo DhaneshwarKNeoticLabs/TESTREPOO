@@ -1,0 +1,31 @@
+name: Run Selected Selenium Suites
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  e2e-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v3
+
+    - name: Set up Java
+      uses: actions/setup-java@v3
+      with:
+        java-version: '11'
+        distribution: 'temurin'
+
+    - name: Run PO + Invoice TestNG Suites
+      run: |
+        mvn test -DsuiteXmlFile="Automation e2e Scripts\CustomerPriceListProcess.xml"
+        mvn test -DsuiteXmlFile="Automation e2e Scripts\vendorPriceUpdate.xml"
+
+    - name: Upload TestNG Reports
+      uses: actions/upload-artifact@v4
+      with:
+        name: testng-reports
+        path: target/surefire-reports/
