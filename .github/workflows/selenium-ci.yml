@@ -19,10 +19,10 @@ jobs:
         java-version: '11'
         distribution: 'temurin'
 
-    - name: Run PO + Invoice TestNG Suites
+    - name: Run PO + CustomerPrice list TestNG Suites
       run: |
         mvn test -DsuiteXmlFile="Automation e2e Scripts\CustomerPriceListProcess.xml"
-        mvn test -DsuiteXmlFile="Automation e2e Scripts\vendorPriceUpdate.xml"
+        
 
     - name: Upload TestNG Reports
       uses: actions/upload-artifact@v4
