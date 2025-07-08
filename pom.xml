@@ -58,6 +58,9 @@
     <version>5.7.0</version> <!-- or latest -->
 </dependency>
 
+
+
+	</dependencies>
 <build>
   <plugins>
     <plugin>
@@ -72,8 +75,5 @@
     </plugin>
   </plugins>
 </build>
-
-	</dependencies>
-
 
 </project>
