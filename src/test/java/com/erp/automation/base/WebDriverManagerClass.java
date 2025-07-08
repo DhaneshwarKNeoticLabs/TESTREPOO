@@ -23,15 +23,39 @@ public class WebDriverManagerClass {
 //	        return driver;
 //	    }
 
-	  public static WebDriver getDriver() {
-		    if (driver == null) {
-		        WebDriverManager.chromedriver().setup(); // auto-downloads compatible ChromeDriver
-		        driver = new ChromeDriver();
-		        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-		        driver.manage().window().maximize();
-		    }
-		    return driver;
-		}
+	 //  public static WebDriver getDriver() {
+		//     if (driver == null) {
+		//         WebDriverManager.chromedriver().setup(); // auto-downloads compatible ChromeDriver
+		//         driver = new ChromeDriver();
+		//         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+		//         driver.manage().window().maximize();
+		//     }
+		//     return driver;
+		// }
+	public static WebDriver getDriver() {
+        if (driver == null) {
+            WebDriverManager.chromedriver().setup();
+
+            ChromeOptions options = new ChromeOptions();
+
+            // Always safe for CI/CD and local
+            options.addArguments("--headless=new");
+            options.addArguments("--no-sandbox");
+            options.addArguments("--disable-dev-shm-usage");
+            options.addArguments("--disable-gpu");
+            options.addArguments("--window-size=1920,1080");
+            options.addArguments("--remote-allow-origins=*");
+
+            // ✅ Fixes session conflict error
+            options.addArguments("--user-data-dir=/tmp/unique-profile-" + UUID.randomUUID());
+
+            driver = new ChromeDriver(options);
+            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+            driver.manage().window().maximize();
+        }
+
+        return driver;
+    }
 
 	    public static void quitDriver() {
 	        if (driver != null) {
