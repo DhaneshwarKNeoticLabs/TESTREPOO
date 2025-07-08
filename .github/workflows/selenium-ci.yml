@@ -21,7 +21,7 @@ jobs:
 
     - name: Run PO + CustomerPrice list TestNG Suites
       run: |
-         mvn test -DsuiteXmlFile="Automation e2e Scripts/CustomerRegistrationProcess.xml"
+         mvn test -DsuiteXmlFile="Automation e2e Scripts/OEE_Summary.xml"
         
 
     - name: Upload TestNG Reports
